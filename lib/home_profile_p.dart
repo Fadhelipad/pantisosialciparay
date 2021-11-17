@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pantisosialciparay/edit_profilep.dart';
 import 'package:pantisosialciparay/main.dart';
 
 class HomeProfileP extends StatefulWidget {
@@ -12,7 +13,12 @@ class HomeProfileP extends StatefulWidget {
 class HomeProfilePState extends State<HomeProfileP> {
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return  Scaffold(appBar: AppBar(
+        title: Text('Profile'),
+
+    ),
+    body :
+      Container(
       color: Colors.grey[200],
       child: Column(
         children: [
@@ -26,6 +32,10 @@ class HomeProfilePState extends State<HomeProfileP> {
               child: Column(
                 children: [
                   ListTile(
+                    onTap: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => EditProfileP()));
+                    },
                     trailing: Icon(
                       Icons.arrow_forward_ios_rounded,
                     ),
@@ -93,6 +103,7 @@ class HomeProfilePState extends State<HomeProfileP> {
           )
         ],
       ),
+    )
     );
   }
 

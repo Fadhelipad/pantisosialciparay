@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pantisosialciparay/donationp.dart';
 import 'package:pantisosialciparay/home_profile_p.dart';
 import 'package:pantisosialciparay/home_widget.dart';
 
@@ -53,9 +54,6 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('home '),
-      ),
       body:  getBody(),
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
@@ -65,11 +63,11 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
           ),
 
           BottomNavigationBarItem(
-            icon: Icon(Icons.business),
+            icon: Icon(Icons.clean_hands),
             label: 'Donasi',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.school),
+            icon: Icon(Icons.person),
             label: 'Profil',
           ),
         ],
@@ -85,10 +83,19 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
       {
         return HomeWidget();
       }
-    else
+    else if (_selectedIndex== 1)
       {
-        return HomeProfileP();
+        return Donationp();
       }
+    else if (_selectedIndex== 2)
+      {
+
+        return HomeProfileP();
+
+      }
+    else {
+      return HomeWidget();
+    }
 
 
   }

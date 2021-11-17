@@ -1,36 +1,37 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class HomeWidget extends StatefulWidget {
+class Donationp extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
     // TODO: implement createState
-    return HomeWidgetState();
+    return DonationpState();
   }
 
 
 }
-class HomeWidgetState extends State<HomeWidget>{
+class DonationpState extends State<Donationp> {
   List aktivitas = ["berita 1","berita 2","berita 3"];
   @override
   Widget build(BuildContext context) {
+    // TODO: implement build
     return Scaffold(
       appBar: AppBar(
-        title: Text("Home"),
+        title: Text("Donasi"),
       ),
       body: Container(
-        color: Colors.grey[200],
-        padding: EdgeInsets.all(10),
-        child: Column(
-          children:[
-            Container(
+    color: Colors.grey[200],
+      padding: EdgeInsets.all(10),
+      child: Column(
+        children:[
+          Container(
               alignment: Alignment.centerLeft,
-                child: Text( "hallo nama")),
-            getlistviewAktivitas(),
-            getlistviewPengumuman(),
-          ],
-        ),
+              child: Text( "Sudahkah Donasi Hari ini?")),
+          getlistviewAktivitas(),
+          getlistviewPengumuman(),
+        ],
       ),
+    ),
     );
   }
   getlistviewAktivitas() {
@@ -38,27 +39,30 @@ class HomeWidgetState extends State<HomeWidget>{
       width: MediaQuery.of(context).size.width,
       height: 180,
       margin: EdgeInsets.only(top: 30),
-      child: Column(
+      child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.max,
         children: [
-          Text("Aktivitas Dan Kegiatan"),
-          Expanded(
-              child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  itemCount: aktivitas.length,
-                  itemBuilder: (context,index){
-                    return Container(
-                      margin: EdgeInsets.all(10),
-                      height:70,
-                      width: MediaQuery.of(context).size.width,
+          Container(
+                      margin: EdgeInsets.all(25),
+                      height:100,
+                      width: 130,
                       child: Card(
                         color: Colors.green,
                       ),
 
-                    );
-                  })
-          )
+                    ),
+          Container(
+            margin: EdgeInsets.all(25),
+            height:100,
+            width: 130,
+            child: Card(
+              color: Colors.green,
+            ),
+
+          ),
+
+
         ],
       ) ,
     );
@@ -73,9 +77,8 @@ class HomeWidgetState extends State<HomeWidget>{
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.max,
         children: [
-          Text("Pemberitahuan dan Pengumuman"),
-          Expanded(
-              child: ListView.builder(
+          Text("History Donasi"),
+           ListView.builder(
                   scrollDirection: Axis.vertical,
                   itemCount: aktivitas.length,
                   itemBuilder: (context,index){
@@ -89,8 +92,8 @@ class HomeWidgetState extends State<HomeWidget>{
 
                     );
                   })
-          )
-        ],
+
+
       ) ,
     );
   }
