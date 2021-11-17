@@ -1,9 +1,16 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:pantisosialciparay/home_page.dart';
 import 'package:pantisosialciparay/UI/input_field.dart';
 import 'package:pantisosialciparay/register.dart';
+import 'package:pantisosialciparay/service/authentication.dart';
 
-void main() => runApp(const MyApp());
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  runApp(const MyApp());
+}
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -32,7 +39,7 @@ class HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        resizeToAvoidBottomInset: false,
+      resizeToAvoidBottomInset: false,
       //Scaffold
       body: Container(
         width: MediaQuery.of(context).size.width,
@@ -130,9 +137,16 @@ class HomeScreenState extends State<HomeScreen> {
                     width: 200,
                     child: RaisedButton(
                       //Raised Button
-                      onPressed: () {
-                        Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => MyHomePage()));
+                      onPressed: () async {
+                        User? user = await Authentication.signInWithGoogle(
+                            context: context);
+                        if (user != null) {
+                          Navigator.of(context).pushReplacement(
+                            MaterialPageRoute(
+                              builder: (context) => MyHomePage(),
+                            ),
+                          );
+                        }
                       },
                       color: Colors.indigo,
                       textColor: Colors.white,
