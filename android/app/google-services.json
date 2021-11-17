@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "107107171431",
+    "project_id": "pantisosialciparay",
+    "storage_bucket": "pantisosialciparay.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:107107171431:android:65d2c22cb29a3521d968c2",
+        "android_client_info": {
+          "package_name": "com.pantisosialciparay.pantisosialciparay"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "107107171431-ln1qntffrkd93a2fkojlr0q8o2etv42e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAP7PyQbuPyBxNwFCar9_Jh75AbHndIoSc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "107107171431-ln1qntffrkd93a2fkojlr0q8o2etv42e.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
