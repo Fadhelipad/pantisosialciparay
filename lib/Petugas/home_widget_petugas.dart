@@ -28,7 +28,7 @@ class HomeWidgetPetugasState extends State<HomeWidgetPetugas>{
           children:[
             Container(
                 alignment: Alignment.centerLeft,
-                child: Text("Selamat Datang,Nama" )),
+                child: Text("Selamat Datang,Petugas" )),
 
             getlistviewListDonasi(),
             getlistviewPengumuman(),
@@ -61,9 +61,9 @@ class HomeWidgetPetugasState extends State<HomeWidgetPetugas>{
                         child: Column(
                           children: [
                             ListTile(
-                              title: const Text('Card title 1'),
+                              title: const Text('Nama Donasi'),
                               subtitle: Text(
-                                'Secondary Text',
+                                'Keterangan donasi',
                                 style: TextStyle(color: Colors.black.withOpacity(0.6)),
                               ),
                             ),
@@ -82,14 +82,35 @@ class HomeWidgetPetugasState extends State<HomeWidgetPetugas>{
 
   getlistviewPengumuman() {
     return Container(
-        margin: EdgeInsets.all(70),
-        child: ElevatedButton(
-          style: ElevatedButton.styleFrom(elevation: 2),
-          onPressed: () { Navigator.of(context).push(MaterialPageRoute(
-              builder: (context) => HomePagePetugas())); },
-          child: Text('Confrim'),
-        ),
-      );
+      margin: EdgeInsets.all(30),
+      child: Column(
+        children: [
+          Row(
+             mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(elevation: 2),
+                  onPressed: () { Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => HomePagePetugas())); },
+                  child: Text('Confrim'),
+                ),
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(elevation: 2),
+                  onPressed: () { Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => HomePagePetugas())); },
+                  child: Text('Detail'),
+                ),
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(elevation: 2),
+                  onPressed: () { Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => HomePagePetugas())); },
+                  child: Text('Selesai'),
+                ),
+              ],
+            ),
+        ],
+      ),
+    );
 
   }
 
