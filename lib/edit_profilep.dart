@@ -11,14 +11,20 @@ class EditProfileP extends StatefulWidget {
     return EditProfilePState();
   }
 }
-  class EditProfilePState extends State<EditProfileP>{
+
+class EditProfilePState extends State<EditProfileP> {
+  TextEditingController emailController = TextEditingController();
+  TextEditingController namaController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+  TextEditingController noTeleponController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return Scaffold(appBar: AppBar(
-      title: Text('Edit Profile'),
-
-    ),
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Edit Profile'),
+      ),
       //Scaffold
       body: Container(
         width: MediaQuery.of(context).size.width,
@@ -49,13 +55,14 @@ class EditProfileP extends StatefulWidget {
                       margin: EdgeInsets.only(top: 10),
                       child: Form(
                         child: InputField(
-                          //Calling inputField  class
+                            //Calling inputField  class
 
                             const Icon(
                               Icons.email,
                               color: Colors.white,
                             ),
-                            "Email"),
+                            "Email",
+                            emailController),
                       ),
                     ),
                     Container(
@@ -66,7 +73,8 @@ class EditProfileP extends StatefulWidget {
                               Icons.person,
                               color: Colors.white,
                             ),
-                            "Nama"),
+                            "Nama",
+                            namaController),
                       ),
                     ),
                     Container(
@@ -77,20 +85,22 @@ class EditProfileP extends StatefulWidget {
                               Icons.lock,
                               color: Colors.white,
                             ),
-                            "Password"),
+                            "Password",
+                            passwordController),
                       ),
                     ),
                     Container(
                       margin: EdgeInsets.only(top: 10),
                       child: Form(
                         child: InputField(
-                          //Calling inputField  class
+                            //Calling inputField  class
 
                             const Icon(
                               Icons.add_call,
                               color: Colors.white,
                             ),
-                            "No Telepon"),
+                            "No Telepon",
+                            noTeleponController),
                       ),
                     ),
                     Container(
@@ -115,7 +125,6 @@ class EditProfileP extends StatefulWidget {
                         ),
                       ),
                     ),
-
                   ],
                 ),
               ),
@@ -125,8 +134,4 @@ class EditProfileP extends StatefulWidget {
       ),
     );
   }
-
-
-
-
-  }
+}

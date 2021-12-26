@@ -36,6 +36,9 @@ class HomeScreen extends StatefulWidget {
 }
 
 class HomeScreenState extends State<HomeScreen> {
+  TextEditingController usernameController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -96,7 +99,8 @@ class HomeScreenState extends State<HomeScreen> {
                             Icons.person,
                             color: Colors.white,
                           ),
-                          "Username"),
+                          "Username",
+                          usernameController),
                     ),
                   ),
                   Container(
@@ -107,7 +111,8 @@ class HomeScreenState extends State<HomeScreen> {
                             Icons.lock,
                             color: Colors.white,
                           ),
-                          "Password"),
+                          "Password",
+                          passwordController),
                     ),
                   ),
                   Container(

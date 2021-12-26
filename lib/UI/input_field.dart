@@ -3,15 +3,15 @@ import 'package:flutter/material.dart';
 class InputField extends StatefulWidget {
   Icon fieldIcon;
   String hintText;
+  final TextEditingController textEditingController;
 
-  InputField(this.fieldIcon, this.hintText, {Key? key}) : super(key: key);
+  InputField(this.fieldIcon, this.hintText, this.textEditingController ,{Key? key}) : super(key: key);
 
   @override
   State<InputField> createState() => _InputFieldState();
 }
 
 class _InputFieldState extends State<InputField> {
-  final _text = TextEditingController();
   final bool _validate = false;
 
   @override
@@ -43,7 +43,7 @@ class _InputFieldState extends State<InputField> {
                 child: Form(
                   child: TextField(
                     //TestField
-                    controller: _text,
+                    controller: widget.textEditingController,
 
                     decoration: InputDecoration(
                       errorText: _validate ? "Username" : null,

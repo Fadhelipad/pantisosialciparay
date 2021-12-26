@@ -29,12 +29,17 @@ class Register extends StatefulWidget {
 }
 
 class RegisterState extends State<Register> {
+  TextEditingController emailController = TextEditingController();
+  TextEditingController namaController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+  TextEditingController noTeleponController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(appBar: AppBar(
-      title: Text('Register'),
-
-    ),
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Register'),
+      ),
       //Scaffold
       body: Container(
         width: MediaQuery.of(context).size.width,
@@ -65,13 +70,14 @@ class RegisterState extends State<Register> {
                       margin: EdgeInsets.only(top: 10),
                       child: Form(
                         child: InputField(
-                          //Calling inputField  class
+                            //Calling inputField  class
 
                             const Icon(
                               Icons.email,
                               color: Colors.white,
                             ),
-                            "Email"),
+                            "Email",
+                            emailController),
                       ),
                     ),
                     Container(
@@ -82,7 +88,8 @@ class RegisterState extends State<Register> {
                               Icons.person,
                               color: Colors.white,
                             ),
-                            "Nama"),
+                            "Nama",
+                            namaController),
                       ),
                     ),
                     Container(
@@ -93,20 +100,22 @@ class RegisterState extends State<Register> {
                               Icons.lock,
                               color: Colors.white,
                             ),
-                            "Password"),
+                            "Password",
+                            passwordController),
                       ),
                     ),
                     Container(
                       margin: EdgeInsets.only(top: 10),
                       child: Form(
                         child: InputField(
-                          //Calling inputField  class
+                            //Calling inputField  class
 
                             const Icon(
                               Icons.add_call,
                               color: Colors.white,
                             ),
-                            "No Telepon"),
+                            "No Telepon",
+                            noTeleponController),
                       ),
                     ),
                     Container(
@@ -131,7 +140,6 @@ class RegisterState extends State<Register> {
                         ),
                       ),
                     ),
-
                   ],
                 ),
               ),

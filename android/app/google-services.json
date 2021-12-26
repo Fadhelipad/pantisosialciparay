@@ -14,6 +14,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "107107171431-bn51uodo7p3oaq19131fvcbq6cj372cn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.pantisosialciparay.pantisosialciparay",
+            "certificate_hash": "f4b4afed2d3df1c3d7d5b83235315f944b76d7f3"
+          }
+        },
+        {
           "client_id": "107107171431-ln1qntffrkd93a2fkojlr0q8o2etv42e.apps.googleusercontent.com",
           "client_type": 3
         }

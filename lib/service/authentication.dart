@@ -38,7 +38,12 @@ class Authentication {
     FirebaseAuth auth = FirebaseAuth.instance;
     User? user;
 
-    final GoogleSignIn googleSignIn = GoogleSignIn();
+    final GoogleSignIn googleSignIn = GoogleSignIn(
+      scopes: [
+        'email',
+        'https://www.googleapis.com/auth/contacts.readonly',
+      ],
+    );
 
     final GoogleSignInAccount? googleSignInAccount =
         await googleSignIn.signIn();
