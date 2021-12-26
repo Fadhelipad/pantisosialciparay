@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:pantisosialciparay/admin/input_berita.dart';
+import 'package:pantisosialciparay/admin/list_donasi.dart';
 import 'package:pantisosialciparay/donationp.dart';
+import 'package:pantisosialciparay/edit_profilep.dart';
 import 'package:pantisosialciparay/home_profile_p.dart';
 import 'package:pantisosialciparay/home_widget.dart';
 
-class MyHomePage extends StatelessWidget {
-  const MyHomePage({Key? key}) : super(key: key);
+class HomePageAdmin extends StatelessWidget {
+  const HomePageAdmin({Key? key}) : super(key: key);
 
   static const String _title = 'Flutter Code Sample';
 
@@ -36,13 +39,16 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
       style: optionStyle,
     ),
     Text(
-      'Index 1: Donasi',
+      'Index 1: Input Berita',
       style: optionStyle,
     ),
     Text(
-      'Index 2: Profil',
+      'Index 2: List Donasi',
       style: optionStyle,
     ),
+    Text("Index 3: Profil",
+      style: optionStyle,
+  ),
   ];
 
   void _onItemTapped(int index) {
@@ -61,12 +67,17 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
             icon: Icon(Icons.home),
             label: 'Home',
           ),
-
           BottomNavigationBarItem(
             icon: ImageIcon(
-              AssetImage("lib/assets/donasi_icon.png"),
+              AssetImage("lib/assets/sound.png"),
+            ),
+            label: 'Input Berita',
           ),
-            label: 'Donasi',
+          BottomNavigationBarItem(
+            icon: ImageIcon(
+          AssetImage("lib/assets/donasi_icon.png"),
+           ),
+            label: 'List Donasi',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.person),
@@ -75,6 +86,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
         ],
         currentIndex: _selectedIndex,
         selectedItemColor: Colors.amber[800],
+        backgroundColor: Colors.black,
         onTap: _onItemTapped,
       ),
     );
@@ -82,19 +94,25 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
 
   Widget getBody() {
     if(_selectedIndex == 0)
-      {
-        return HomeWidget();
-      }
+    {
+      return HomeWidget();
+    }
     else if (_selectedIndex== 1)
-      {
-        return Donationp();
-      }
+    {
+      return InputBerita();
+    }
     else if (_selectedIndex== 2)
-      {
+    {
 
-        return HomeProfileP();
+      return InputDonasi();
 
-      }
+    }
+    else if (_selectedIndex== 3)
+    {
+
+      return HomeProfileP();
+
+    }
     else {
       return HomeWidget();
     }

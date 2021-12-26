@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pantisosialciparay/home_page.dart';
 import 'package:pantisosialciparay/UI/input_field.dart';
-import 'package:pantisosialciparay/main.dart';
+import 'package:pantisosialciparay/login.dart';
 
 void main() => runApp(const MyApp());
 

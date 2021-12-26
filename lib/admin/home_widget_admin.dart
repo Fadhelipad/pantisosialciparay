@@ -1,16 +1,16 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class HomeWidget extends StatefulWidget {
+class HomeWidgetAdmin extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
     // TODO: implement createState
-    return HomeWidgetState();
+    return HomeWidgetAdminState();
   }
 
 
 }
-class HomeWidgetState extends State<HomeWidget>{
+class HomeWidgetAdminState extends State<HomeWidgetAdmin>{
   List aktivitas = ["berita 1","berita 2","berita 3"];
   @override
   Widget build(BuildContext context) {
@@ -25,7 +25,7 @@ class HomeWidgetState extends State<HomeWidget>{
         child: Column(
           children:[
             Container(
-              alignment: Alignment.centerLeft,
+                alignment: Alignment.centerLeft,
                 child: Text("Selamat Datang,Nama" )),
 
             getlistviewAktivitas(),

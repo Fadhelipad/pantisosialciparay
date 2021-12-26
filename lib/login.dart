@@ -1,10 +1,13 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:pantisosialciparay/Petugas/home_page_petugas.dart';
 import 'package:pantisosialciparay/home_page.dart';
 import 'package:pantisosialciparay/UI/input_field.dart';
 import 'package:pantisosialciparay/register.dart';
 import 'package:pantisosialciparay/service/authentication.dart';
+
+import 'admin/home_page_admin.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -123,8 +126,7 @@ class HomeScreenState extends State<HomeScreen> {
                     child: RaisedButton(
                       //Raised Button
                       onPressed: () {
-                        Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => MyHomePage()));
+                        redirectPage();
                       },
                       color: Colors.indigo,
                       textColor: Colors.white,
@@ -197,5 +199,24 @@ class HomeScreenState extends State<HomeScreen> {
         ),
       ),
     );
+  }
+
+  void redirectPage() {
+    if (usernameController.text == "admin") {
+      final route = MaterialPageRoute(builder: (context) {
+        return HomePageAdmin();
+      });
+      Navigator.push(context, route);
+    } else if (usernameController.text == "petugas") {
+      final route = MaterialPageRoute(builder: (context) {
+        return HomePagePetugas();
+      });
+      Navigator.push(context, route);
+    } else {
+      final route = MaterialPageRoute(builder: (context) {
+        return MyHomePage();
+      });
+      Navigator.push(context, route);
+    }
   }
 }

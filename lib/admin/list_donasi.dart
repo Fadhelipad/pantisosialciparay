@@ -1,22 +1,26 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:pantisosialciparay/admin/home_page_admin.dart';
+import 'package:pantisosialciparay/pickupbarangp.dart';
+import 'package:pantisosialciparay/transferp.dart';
 
-class HomeWidget extends StatefulWidget {
+class InputDonasi extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
     // TODO: implement createState
-    return HomeWidgetState();
+    return InputDonasiState();
   }
 
 
 }
-class HomeWidgetState extends State<HomeWidget>{
+class InputDonasiState extends State<InputDonasi> {
   List aktivitas = ["berita 1","berita 2","berita 3"];
   @override
   Widget build(BuildContext context) {
+    // TODO: implement bui
     return Scaffold(
       appBar: AppBar(
-        title: Text("Home"),
+        title: Text("List Donasi"),
         backgroundColor: Colors.blue[200],
       ),
       body: Container(
@@ -25,62 +29,17 @@ class HomeWidgetState extends State<HomeWidget>{
         child: Column(
           children:[
             Container(
-              alignment: Alignment.centerLeft,
+                alignment: Alignment.centerLeft,
                 child: Text("Selamat Datang,Nama" )),
 
-            getlistviewAktivitas(),
+            getlistviewListDonasi(),
             getlistviewPengumuman(),
           ],
         ),
       ),
     );
   }
-  getlistviewAktivitas() {
-    return  Container(
-      width: MediaQuery.of(context).size.width,
-      height: 180,
-      margin: EdgeInsets.only(top: 30),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisSize: MainAxisSize.max,
-        children: [
-          Text("Berita dan Aktivitas Hari ini"),
-          Expanded(
-              child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  itemCount: aktivitas.length,
-                  itemBuilder: (context,index){
-                    return Container(
-                      margin: EdgeInsets.all(10),
-                      height:100,
-                      width: MediaQuery.of(context).size.width,
-                      child: Card
-                        (clipBehavior: Clip.antiAlias,
-                        child: Column(
-                          children: [
-                            Image.asset('lib/assets/coming-soon.png'),
-                            ListTile(
-                              title: const Text('Card title 1'),
-                              subtitle: Text(
-                                'Secondary Text',
-                                style: TextStyle(color: Colors.black.withOpacity(0.6)),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-
-
-
-                    );
-                  })
-          )
-        ],
-      ) ,
-    );
-  }
-
-  getlistviewPengumuman() {
+  getlistviewListDonasi() {
     return Container(
       width: MediaQuery.of(context).size.width,
       height: 300,
@@ -89,7 +48,7 @@ class HomeWidgetState extends State<HomeWidget>{
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.max,
         children: [
-          Text("Pemberitahuan dan Pengumuman"),
+          Text("List Donasi Admin"),
           Expanded(
               child: ListView.builder(
                   scrollDirection: Axis.vertical,
@@ -121,6 +80,19 @@ class HomeWidgetState extends State<HomeWidget>{
         ],
       ) ,
     );
+  }
+
+  getlistviewPengumuman() {
+    return Container(
+      margin: EdgeInsets.all(70),
+      child: ElevatedButton(
+        style: ElevatedButton.styleFrom(elevation: 2),
+        onPressed: () { Navigator.of(context).push(MaterialPageRoute(
+            builder: (context) => HomePageAdmin())); },
+        child: Text('Confrim'),
+      ),
+    );
+
   }
 
 

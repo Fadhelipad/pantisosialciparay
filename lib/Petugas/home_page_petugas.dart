@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:pantisosialciparay/Petugas/home_widget_petugas.dart';
+import 'package:pantisosialciparay/Petugas/maps_petugas.dart';
 import 'package:pantisosialciparay/donationp.dart';
 import 'package:pantisosialciparay/home_profile_p.dart';
 import 'package:pantisosialciparay/home_widget.dart';
 
-class MyHomePage extends StatelessWidget {
-  const MyHomePage({Key? key}) : super(key: key);
+class HomePagePetugas extends StatelessWidget {
+  const HomePagePetugas({Key? key}) : super(key: key);
 
   static const String _title = 'Flutter Code Sample';
 
@@ -36,11 +38,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
       style: optionStyle,
     ),
     Text(
-      'Index 1: Donasi',
-      style: optionStyle,
-    ),
-    Text(
-      'Index 2: Profil',
+      'Index 1: Maps',
       style: optionStyle,
     ),
   ];
@@ -65,12 +63,8 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
           BottomNavigationBarItem(
             icon: ImageIcon(
               AssetImage("lib/assets/donasi_icon.png"),
-          ),
-            label: 'Donasi',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: 'Profil',
+            ),
+            label: 'Maps',
           ),
         ],
         currentIndex: _selectedIndex,
@@ -82,19 +76,19 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
 
   Widget getBody() {
     if(_selectedIndex == 0)
-      {
-        return HomeWidget();
-      }
+    {
+      return HomeWidgetPetugas();
+    }
     else if (_selectedIndex== 1)
-      {
-        return Donationp();
-      }
+    {
+      return Mapspetugas();
+    }
     else if (_selectedIndex== 2)
-      {
+    {
 
-        return HomeProfileP();
+      return HomeProfileP();
 
-      }
+    }
     else {
       return HomeWidget();
     }

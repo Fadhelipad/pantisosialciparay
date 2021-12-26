@@ -1,6 +1,7 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:pantisosialciparay/edit_profilep.dart';
-import 'package:pantisosialciparay/main.dart';
+import 'package:pantisosialciparay/login.dart';
 
 class HomeProfileP extends StatefulWidget {
   @override
@@ -83,7 +84,8 @@ class HomeProfilePState extends State<HomeProfileP> {
                     ),
                   ),
                   ListTile(
-                    onTap: (){
+                    onTap: () async {
+                      await FirebaseAuth.instance.signOut();
                       Navigator.of(context).pushAndRemoveUntil
                         (MaterialPageRoute(
                           builder: (context) => HomeScreen()),
@@ -137,8 +139,8 @@ class HomeProfilePState extends State<HomeProfileP> {
                   "Nama User",
                   style: TextStyle(fontSize: 20),
                 ),
-              )
-            ],
+              ),
+              ],
           ),
         ),
         color: Colors.white,
