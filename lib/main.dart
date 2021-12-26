@@ -107,12 +107,14 @@ class HomeScreenState extends State<HomeScreen> {
                     margin: EdgeInsets.only(top: 10),
                     child: Form(
                       child: InputField(
-                          const Icon(
-                            Icons.lock,
-                            color: Colors.white,
-                          ),
-                          "Password",
-                          passwordController),
+                        const Icon(
+                          Icons.lock,
+                          color: Colors.white,
+                        ),
+                        "Password",
+                        passwordController,
+                        hidden: true,
+                      ),
                     ),
                   ),
                   Container(

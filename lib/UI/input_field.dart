@@ -4,8 +4,10 @@ class InputField extends StatefulWidget {
   Icon fieldIcon;
   String hintText;
   final TextEditingController textEditingController;
+  bool hidden;
 
-  InputField(this.fieldIcon, this.hintText, this.textEditingController ,{Key? key}) : super(key: key);
+  InputField(this.fieldIcon, this.hintText, this.textEditingController,
+      {Key? key, this.hidden = false}) : super(key: key);
 
   @override
   State<InputField> createState() => _InputFieldState();
@@ -42,9 +44,9 @@ class _InputFieldState extends State<InputField> {
                 padding: const EdgeInsets.all(8.0),
                 child: Form(
                   child: TextField(
+                    obscureText: widget.hidden,
                     //TestField
                     controller: widget.textEditingController,
-
                     decoration: InputDecoration(
                       errorText: _validate ? "Username" : null,
                       border: InputBorder.none,
