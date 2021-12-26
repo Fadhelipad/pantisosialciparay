@@ -33,7 +33,7 @@ class InputBeritaState extends State<InputBerita> {
               decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadiusDirectional.circular(60)),
-              child: Text( "Sudahkah input Berita hari ini?",
+              child: Text( "Sudahkah input aktivitas dan pengumuman hari ini?",
                 style: TextStyle(fontSize: 14),
               ),
             ),
@@ -91,16 +91,45 @@ class InputBeritaState extends State<InputBerita> {
   }
 
   getlistviewPengumuman() {
+    return
     return Container(
-      margin: EdgeInsets.all(70),
-      child: ElevatedButton(
-        style: ElevatedButton.styleFrom(elevation: 2),
-        onPressed: () { Navigator.of(context).push(MaterialPageRoute(
-            builder: (context) => InputBerita())); },
-        child: Text('Confrim'),
-      ),
-    );
+      width: MediaQuery.of(context).size.width,
+      height: 300,
+      margin: EdgeInsets.only(top: 30),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisSize: MainAxisSize.max,
+        children: [
+          Text("List Berita"),
+          Expanded(
+              child: ListView.builder(
+                  scrollDirection: Axis.vertical,
+                  itemCount: aktivitas.length,
+                  itemBuilder: (context,index){
+                    return Container(
+                      margin: EdgeInsets.all(10),
+                      height:80,
+                      width: MediaQuery.of(context).size.width,
+                      child: Card(clipBehavior: Clip.antiAlias,
+                        child: Column(
+                          children: [
+                            ListTile(
+                              title: const Text('Berita'),
+                              subtitle: Text(
+                                'Berita',
+                                style: TextStyle(color: Colors.black.withOpacity(0.6)),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
 
+                    );
+                  })
+          )
+        ],
+      ) ,
+    );
   }
 
 
